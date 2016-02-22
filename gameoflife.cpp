@@ -85,10 +85,14 @@ int main()
 	MEVENT event;
 	int ch;
 	char input[100];
+	char input2[100];
+	char input3[100];
 	fstream file;
 	string line;
 	int x;
 	int y;
+	int xoffset;
+	int yoffset;
 	while (1)
 	{
 		attron(COLOR_PAIR(3));
@@ -130,13 +134,19 @@ int main()
 			refresh();
 			echo();
 			mvgetstr(0,32,input);
+			mvprintw(1,0,"X-offset to load at: ");
+			mvgetstr(1,21,input2);
+			mvprintw(2,0,"Y-offset to load at: ");
+			mvgetstr(2,21,input3);
 			noecho();
+			xoffset=atoi(input2);
+			yoffset=atoi(input3);
 			file.open(input);
 			getline(file,line); //Get rid of the initial comment line.
 			while (getline(file,line))
 			{
 				sscanf(line.c_str(),"%d %d",&x,&y);
-				newarr[x][y]=1;
+				newarr[x+xoffset][y+yoffset]=1;
 			}
 			file.close();
 			mvprintw(1,0,"Info: Pattern loaded.");
