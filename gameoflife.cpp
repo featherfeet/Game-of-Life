@@ -4,8 +4,8 @@
 #include <unistd.h>
 #include <ncurses.h>
 #include <fstream>
-#define DRAW_SIZE_X 100 //Width of area drawn.
-#define DRAW_SIZE_Y 100 //Height of area drawn.
+#define DRAW_SIZE_X 80 //Width of area drawn.
+#define DRAW_SIZE_Y 24 //Height of area drawn.
 #define ARRAY_SIZE_X 500 //Width of area in memory.
 #define ARRAY_SIZE_Y 500 //Height of area in memory.
 using namespace std;
